@@ -22,13 +22,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-
+  def edit 
   end
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task)
+      redirect_to tasks_path
     else
       render :edit
     end
