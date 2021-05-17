@@ -16,3 +16,18 @@
     </div>
   <% end %>
 </div>
+<!-- tasks with actual checkboxes which update when pressed -->
+<div class="container mt-4">
+  <h3> Example with working checkboxes </h3>
+  <% @tasks.each do |task| %>
+    <div class="d-flex align-items-center">
+      <h3><%= task.title %></h3>
+      <%= form_for(task, url: task_completed_path(task)) do |f| %>
+          <%= f.check_box :completed, class: 'mr-3 ml-3', onchange: "this.form.submit();" %>
+      <% end %>
+      <%= link_to delete_task_path(task), method: :delete do %>
+        <i class="fas fa-times"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
